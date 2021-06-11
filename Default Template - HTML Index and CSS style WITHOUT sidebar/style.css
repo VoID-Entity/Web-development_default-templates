@@ -1,0 +1,258 @@
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*
+Theme Name: Default Template V1
+Author: Patrik Nilsson
+Description: CSS Template
+Version: 1.0
+License: GNU General Public License v2 or later
+Tags: CSS Template, Style, Layout
+Text Domain: https://github.com/VoID-Entity
+*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/*Import font*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+		/*||-->MISCELLANEOUS<--||*/
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/*Text styles*/
+p {
+	color: white;
+	margin: .8em;
+	font-size: .9em;
+	line-height: 1.6em;
+}
+h1 {
+	color: white;
+	margin: .6em;
+	text-align: center;
+}
+h2 {
+	color: white;
+	margin: .6em;
+	text-align: center;
+}
+h3 {
+	color: white;
+	margin: .6em;
+	font-size: 1em;
+	line-height: 1.6em;
+}
+
+/*Lists style*/
+ul {
+}
+li {
+	padding: 5px;
+	text-align: center;
+	list-style-type: none;
+}
+li a {
+	color: white;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-decoration: none;	
+}
+li a:hover {
+	color: black;
+	background-color: white;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+		/*||-->SITE LAYOUT<--||*/
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/*Body*/
+body {
+	font-family: 'Ubuntu', sans-serif;
+	
+	/*Border and background to show CSS*/
+	background-color: black;
+	border-color: white;
+	border-style: solid;
+	border-radius: 10px;
+}
+
+/*Wrapper*/
+.wrapper {
+	margin: 0;
+	border: 0;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-right: 7em;
+	padding-left: 7em;
+	
+	/*Border and background to show CSS*/
+	background-color: black;
+	border-color: white;
+	border-style: solid;
+	border-radius: 10px;
+}
+
+	/*Header*/ 
+	
+/*Element*/
+header {
+	/*Border and background to show CSS*/
+	background-color: black;
+	border-color: white;
+	border-style: solid;
+	border-radius: 10px;
+}
+/*ID*/
+#header {
+	min-height: 4em;
+}
+/*Class*/
+.header {
+}
+
+	/*Navigation*/
+
+/*Element*/
+nav {
+	max-height: 3em;
+	
+	/*Border and background to show CSS*/
+	background-color: black;
+	border-color: white;
+	border-style: solid;
+	border-radius: 10px;
+}
+/*ID*/
+#nav {
+	text-align: center;
+}
+/*Class*/
+.nav {
+}
+
+	/*Main*/
+
+/*Element*/
+main {
+	display: grid;
+	grid-template-columns: 100%;
+	
+	/*Border and background to show CSS*/
+	background-color: black;
+	border-color: white;
+	border-style: solid;
+	border-radius: 10px;
+}
+/*ID*/
+#main {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 3em;
+	padding-right: 3em;
+	min-height: 23em;
+}
+/*Class*/
+.main {
+}
+/*General content*/
+.content {
+	padding: 1em;
+	background-color: black;
+}
+
+	/*Footer*/
+	
+/*Element*/
+footer {
+	/*Border and background to show CSS*/
+	background-color: black;
+	border-color: white;
+	border-style: solid;
+	border-radius: 10px;
+}
+/*ID*/
+#footer{
+	padding-left: 1em;
+	padding-right: 1em;
+	display: grid;
+	grid-template-columns: 100%;
+
+}
+/*Class*/
+.footer {
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+		/*||-->RESPONSIVITY<--||*/
+		
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+@media only screen and (max-width: 950px) {
+
+			/*||-->MISCELLANEOUS<--||*/
+			
+		/*Lists style*/
+	nav li {
+	}
+	nav li a {
+		padding-left: 8px;
+		padding-right: 8px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	
+			/*||-->SITE LAYOUT<--||*/
+			
+		/*Body*/
+	body {
+	}
+	
+		/*Wrapper*/
+	.wrapper {
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-right: 0;
+		padding-left: 0;
+	}
+	
+		/*Header*/ 
+	header {
+	}
+	#header {
+	}
+	.header {
+	}
+	
+		/*Navigation*/
+	nav {
+	}
+	#nav {
+	}
+	.nav {
+	}
+	
+		/*Main*/
+	main {
+	}
+	#main {
+		padding: 1em;
+	}
+	.main {
+	}
+	.content {
+	}
+	
+		/*Footer*/
+	footer {
+	}
+	#footer{
+	}
+	.footer {
+	}
+}
