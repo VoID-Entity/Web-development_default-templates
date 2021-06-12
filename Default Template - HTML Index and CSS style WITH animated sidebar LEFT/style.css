@@ -1,0 +1,355 @@
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*
+Theme Name: Default Template V4
+Author: Patrik Nilsson
+Description: CSS Template
+Version: 4.0
+License: GNU General Public License v2 or later
+Tags: CSS Template, Style, Layout
+Text Domain: https://github.com/VoID-Entity
+*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/*Import font*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+		/*||-->MISCELLANEOUS<--||*/
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/*Text styles*/
+p {
+	color: white;
+	margin: .8em;
+	font-size: .9em;
+	line-height: 1.6em;
+}
+h1 {
+	color: white;
+	margin: .6em;
+	text-align: center;
+}
+h2 {
+	font-size: 20px;
+	color: white;
+	margin: 1em;
+	text-align: left;
+}
+h3 {
+	color: white;
+	margin: .6em;
+	font-size: 1em;
+	line-height: 1.6em;
+}
+
+/*Lists style*/
+ul {
+}
+li {
+	width: 100%;
+	text-align: right;
+	height: 100%;
+}
+li a {
+	color: white;
+	text-decoration: none;
+	display: block;
+	padding: 1em;
+}
+li a:hover {
+	color: black;
+	background-color: white;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+		/*||-->SITE LAYOUT<--||*/
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/*Body*/
+body {
+	font-family: 'Ubuntu', sans-serif;
+	
+	/*Border and background to show CSS*/
+	background-color: black;
+	border-color: white;
+	border-style: solid;
+	border-radius: 10px;;
+}
+
+/*Wrapper*/
+.wrapper {
+	margin: 0;
+	border: 0;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-right: 7em;
+	padding-left: 7em;
+	
+	/*Border and background to show CSS*/
+	background-color: black;
+	border-color: white;
+	border-style: solid;
+	border-radius: 10px;;
+}
+
+	/*Header*/ 
+	
+/*Element*/
+header {
+	/*Border and background to show CSS*/
+	background-color: black;
+	border-color: white;
+	border-style: solid;
+	border-radius: 10px;;
+}
+/*ID*/
+#header {
+	min-height: 4em;
+}
+/*Class*/
+.header {
+}
+
+/*----------------------------------------------------------*/
+
+		/*Animation for navigation onClick event Desktop*/
+
+/*----------------------------------------------------------*/
+
+/*Div to control grid size*/
+.navbar_toggle {
+	display: grid;
+	grid-template-columns: 25% 75%;
+}
+.toggle_hide {
+	display: grid;
+	grid-template-columns: 3% 97%;
+}
+	
+	/*Navigation*/
+
+/*Class*/
+.nav {
+	min-height: 100%;
+}
+.navtext_hide {
+	display: none;
+}
+
+/*Element*/
+nav {
+	/*Border and background to show CSS*/
+	background-color: black;
+	border-color: white;
+	border-style: solid;
+	border-radius: 10px;;
+}
+/*ID*/
+#nav {
+}
+/*Navigation headline*/
+nav h2 {
+	margin-top: .5em;
+	margin-left: 1em;
+	margin-bottom: .3em;
+	Padding-top: .2em;
+	Padding-left: 1em;
+	Padding-bottom: 0em;
+}
+/*Hamburger menu image*/
+.nav_img {
+	width: 10%;
+	float: right;
+	cursor: pointer;
+	padding: .6em .6em;
+	margin-right: .4em;
+	margin-top: .4em;
+	margin-bottom: .4em;
+}
+.toggle_img{
+	width: 100%;
+	float: right;
+	cursor: pointer;
+	padding-top: .6em;
+	padding-bottom: .6em;
+	padding-left: 0em;
+	padding-right: 0em;
+	margin-top: .4m;
+	margin-bottom: .4em;
+	margin-left: 0em;
+	margin-right: em;
+}
+
+/*----------------------------------------------------------*/
+
+		/*End of animation for navigation onClick event Desktop*/
+
+/*----------------------------------------------------------*/
+
+	/*Main*/
+
+/*Element*/
+main {
+	
+	/*Border and background to show CSS*/
+	background-color: black;
+	border-color: white;
+	border-style: solid;
+	border-radius: 10px;;
+}
+/*ID*/
+#main {
+	overflow: scroll;
+	overflow-x: hidden; /* Hide horizontal scrollbar */
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 3em;
+	padding-right: 3em;
+	min-height: 25em;
+	max-height: 50em;
+}
+/*Class*/
+.main {
+}
+/*General content*/
+.content {
+	padding: 1em;
+	background-color: black;
+}
+
+	/*Footer*/
+	
+/*Element*/
+footer {
+	/*Border and background to show CSS*/
+	background-color: black;
+	border-color: white;
+	border-style: solid;
+	border-radius: 10px;;
+}
+/*ID*/
+#footer{
+	padding-left: 1em;
+	padding-right: 1em;
+	display: grid;
+	grid-template-columns: 100%;
+
+}
+/*Class*/
+.footer {
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+		/*||-->RESPONSIVITY<--||*/
+		
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+@media only screen and (max-width: 950px) {
+
+			/*||-->MISCELLANEOUS<--||*/
+			
+		/*Lists style*/
+	li {
+		text-align: center;
+		color: white;
+		text-decoration: none;
+		display: block;
+		padding: 1em;
+		list-style: none;
+	}
+	li a {
+	}
+	
+			/*||-->SITE LAYOUT<--||*/
+			
+		/*Body*/
+	body {
+	}
+	
+		/*Wrapper*/
+	.wrapper {
+		margin: 0;
+		border: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-right: 0;
+		padding-left: 0;
+	}
+	
+		/*Header*/ 
+	header {
+	}
+	#header {
+	}
+	.header {
+	}
+	
+			/*Animation for navigation onClick event Mobile*/
+	
+		/*Navigation*/
+	nav {
+		display: block;
+	}
+	.nav_img {
+		width: 5%;
+		float: right;
+		cursor: pointer;
+		padding: .6em .6em;
+		margin-right: .4em;
+		margin-top: 0em;
+		margin-bottom: 0em;
+	}
+	.toggle_img{
+		width: 5%;
+		float: right;
+		cursor: pointer;
+		padding: .6em .6em;
+		margin-right: .4em;
+		margin-top: 0em;
+		margin-bottom: 0em;
+	}
+	#nav {
+		margin-right: 1em;
+		margin-left: -1em;
+	}
+	.nav {
+		min-height: 100%;
+	}
+	.navtext_hide {
+		display: none;
+	}
+	.navbar_toggle {
+		display: grid;
+		grid-template-columns: 100%;
+	}
+	.toggle_hide {
+		display: grid;
+		grid-template-columns: 100%;
+	}
+	
+		/*Main*/
+	}
+	#main {
+		overflow: auto;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		min-height: 25em;
+	}
+	.main {
+	}
+	.content {
+	}
+	
+		/*Footer*/
+	footer {
+	}
+	#footer{
+	}
+	.footer {
+	}
+}

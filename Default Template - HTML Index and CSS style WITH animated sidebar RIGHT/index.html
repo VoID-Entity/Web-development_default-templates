@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<!--------------------------------------------------------------------------------------------------------------------
+
+Theme Name: Default Template V5
+Author: Patrik Nilsson
+Description: HTML Template
+Version: 5.0
+License: GNU General Public License v2 or later
+Tags: HTML Template, Structure, Layout
+Text Domain: https://github.com/VoID-Entity
+
+-------------------------------------------------------------------------------------------------------------------->
+
+<html>
+	<!--Header-->
+	<head>
+		<!--Character Encoding Table-->
+		<meta charset="UTF-8">
+		<!--Include CSS file-->
+		<link href="style.css" rel="stylesheet">
+		<!--Title-->
+		<title>
+			Default Template V5
+		</title>
+	</head>
+	<!--Body-->
+	<body>
+		<!--Wrapper-->
+		<div class="wrapper">
+			<!--Header-->
+			<header>
+				<div id="header" class="header">
+					<h1>
+						Header
+					</h1>
+				</div>
+			</header>
+			<!--Main-->
+			<main>
+				<div id="navbar_toggle" class="navbar_toggle">
+					<div id="main" class="main">
+						<div id="content">
+							<section>
+								<h1>
+									Headline / Object
+								</h1>
+								<p>
+									Text / Object
+								</p>
+							</section>
+						</div>
+					</div>
+					<!--Navigation-->
+					<nav>
+					
+							<!--Animation ännu ej implementerad-->
+							
+						<!--Img with onClick-event for dysplay/hide navigation-->
+						<img id="nav_img" class="nav_img" src="menu.png" onclick="myFunction()">
+						<div id="nav" class="nav">
+							<h2>
+								Navigation
+							</h2>
+							<li>
+								<a href="index.html">
+									Homepage
+								</a>
+								<a href="#">
+									Nextpage 1
+								</a>
+								<a href="#">
+									Nextpage 2
+								</a>
+								<a href="#">
+									Nextpage 3
+								</a>
+							</li>
+						</div>
+					</nav>
+				</div>
+			</main>
+			<!--Footer-->
+			<footer>
+				<div id="footer" class="footer">
+					<p>
+						&#169;Patrik Nilsson
+					</p>
+				</div>
+			</footer>
+		</div>
+	</body>7
+	<!--Function to hide/show navigation-->
+	<script>
+		function myFunction() {
+		
+			var x = document.getElementById('navbar_toggle');
+			var y = document.getElementById('nav');
+			var z= document.getElementById('nav_img')
+			
+			if (y.className === "nav") {
+				x.className = "navbar_toggle_main";
+				y.className = "navbar_toggle_nav";
+				z.className = "toggle_img";
+			}
+			else {
+				x.className = "navbar_toggle";
+				y.className = "nav";
+				z.className = "nav_img";
+			}
+		}
+	</script>
+</html>
