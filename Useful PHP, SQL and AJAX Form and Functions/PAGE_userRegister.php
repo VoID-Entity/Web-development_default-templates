@@ -20,7 +20,7 @@ require_once "databaseConnection.php";//<------Name of file with database access
 	//---->ALTERNATIVELY<----\\
 	
 //Include credentials to database if this is not stored in a seperate file
-//$mysqli_pointer = mysqli_connect("localhost","USERNAME","PASSWORD", "DATABASE");//<-----Here you enter your login credential etc to access database
+//$mysqli_pointer = mysqli_connect("localhost","USERNAME","PASSWORD", "DATABASE");//<-----Enter login credential etc to access database here
 //if (mysqli_connect_errno()){
 //	$error .= '<p class="error">Something went wrong: </p>' . mysqli_connect_error();
 //}
@@ -28,7 +28,7 @@ require_once "databaseConnection.php";//<------Name of file with database access
 //------------------------------------------------------------------------------------
 
 
-//Defining variables referenced outside of below statement required to set them, his in order to avoid "null error".
+//Defining variables referenced outside of below statement required to set them, this in order to avoid "null error".
 $success = "";
 $error = "";
 
