@@ -15,7 +15,7 @@
 //Starts session
 session_start();
 
-//If below variables are set, this happens
+//If below variables are set during login, this happens
 if(isset($_SESSION["id"]) && isset($_SESSION["username"])){
 	
 	//Storing variables

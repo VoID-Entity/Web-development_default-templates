@@ -22,7 +22,7 @@ if(session_destroy()) {
 	unset($_SESSION["username"]);
 	
 	//Redirect to login.php
-	header("location: login.php");//<---Change to whatever page you want a logout to redrect to
+	header("location: login.php");//<---Change to whatever page you want a logout to redirect to
 	exit;
 }
 ?>

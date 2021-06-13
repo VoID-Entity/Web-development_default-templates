@@ -12,7 +12,7 @@
 //
 //--------------------------------------------------------------------------------------------------------------------
 
-//Requiring file containing credentials to the database hosting user login credentials.
+//Require database-connection file to access login credentials
 require_once "databaseConnection.php";//<------Name of file with database access credentials
 
 //------------------------------------------------------------------------------------
@@ -28,21 +28,21 @@ require_once "databaseConnection.php";//<------Name of file with database access
 //------------------------------------------------------------------------------------
 
 
-//Defining variables referenced outside of below statements requred to set them in order to avoid "null error".
+//Defining variables referenced outside of below statement required to set them, his in order to avoid "null error".
 $success = "";
 $error = "";
 
 //When "submit", this happens.
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 	
-	//Defining variables from form
+	//Defining variables through form data
 	$username = mysqli_real_escape_string($mysqli_pointer, $_POST['username']);
 	$email = mysqli_real_escape_string($mysqli_pointer, $_POST['email']);
 	$password = mysqli_real_escape_string($mysqli_pointer, $_POST['password']);
 	$confirm_password = mysqli_real_escape_string($mysqli_pointer, $_POST['confirm_password']);
 	$password_hash = password_hash($password, PASSWORD_BCRYPT);
 	
-	if($query = $mysqli_pointer->prepare("SELECT * FROM users WHERE email = ?")) {//<----Here you exchange query to point to correct database and row for user login credentials.
+	if($query = $mysqli_pointer->prepare("SELECT * FROM users WHERE email = ?")) {//<----Exchange query to point to correct database and row for user login credentials here
 		$error = '';
 		
 		//Bind parameter for email as string
@@ -57,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 			$error .= '<p class="error">This email address is already registered!</p>';
 		}
 		else {
-			//Validate that password is loger than 6 characters
+			//Validate that password is longer than 6 characters
 			if(strlen($password ) < 6) {
 				$error .= '<p class="error">Password must have atleast 6 characters</p>';
 			}
@@ -72,9 +72,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 					$error .= '<p class="error">Password did not match!</p>';
 				}
 			}
-			//Inserting user registration data into database
+			//Insert user registration data into database
 			if(empty($error) ) {
-				$insertQuery = $mysqli_pointer->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?);");//<----Here you exchange query to point to correct database and row for user login credentials.
+				$insertQuery = $mysqli_pointer->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?);");//<----Exchange query to point to correct database and row for user login credentials here
 				$insertQuery->bind_param("sss", $username, $email, $password_hash);//<---Binding parameters
 				$result = $insertQuery->execute();//<---Execute
 				if($result) {
@@ -133,7 +133,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 				<p class="form_text"><!--Submit button-->
 					<input type="submit" name="submit" value="Submit">
 				</p>
-				<p><!--Direct user to login page if already have account-->
+				<p><!--Direct user to login page if "already have account"-->
 					Already have an account? <a href="login.php">Login here<a><!--Name of page containing user login form-->
 				</p>
 			</form>

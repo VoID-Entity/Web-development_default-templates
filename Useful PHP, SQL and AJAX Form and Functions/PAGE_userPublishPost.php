@@ -12,10 +12,10 @@
 //
 //--------------------------------------------------------------------------------------------------------------------
 
-//require session file storing variables for current session
-require "session.php";//<------Name of file storing session variables
+//Require session file to access variables for current session
+require "session.php";//<------Name of file to access session variables
 
-//Requiring file containing credentials to the database hosting user login credentials
+//Require database-connection file to access login credentials
 require_once "databaseConnection.php";//<------Name of file with database access credentials
 
 //------------------------------------------------------------------------------------
@@ -37,17 +37,17 @@ $error = "";
 //When "submit", this happens.
 if($_SERVER["REQUEST_METHOD"] == "GET" && isset($_POST['submit'])) {
 	
-	//Defining variables from form and current session
-	$userid = $_SESSION['id'];//<----Here you exchange variable to point to correct session variable
-	$username = $_SESSION['username'];//<----Here you exchange variable to point to correct session variable
-	$titel = mysqli_real_escape_string($mysqli_pointer, $_POST['title']);//<----Here you exchange variable to point to correct form variable
-	$text = mysqli_real_escape_string($mysqli_pointer, $_POST['text']);//<----Here you exchange variable to point to correct form variable
-	$category = mysqli_real_escape_string($mysqli_pointer, $_POST['category_type']);//<----Here you exchange variable to point to correct form variable
+	//Defining variables through form data and current session variables
+	$userid = $_SESSION['id'];//<----Exchange variable to point to correct session variable here
+	$username = $_SESSION['username'];//<----Exchange variable to point to correct session variable here
+	$titel = mysqli_real_escape_string($mysqli_pointer, $_POST['title']);//<----Exchange variable to point to correct form data here
+	$text = mysqli_real_escape_string($mysqli_pointer, $_POST['text']);//<----Exchange variable to point to correct form data here
+	$category = mysqli_real_escape_string($mysqli_pointer, $_POST['category_type']);//<----Exchange variable to point to correct form data here
 	
 	//If form contains data
-	if(!empty($titel) || !empty($text) || !empty($category)){//<----Here you exchange variable to point to correct, required variables defined above
+	if(!empty($titel) || !empty($text) || !empty($category)){//<----Exchange variables to corresponding REQUIRED form data here
 		
-		//<----Below you exchange query to point to correct database and row for what you want to store and your collected form data
+		//<----Exchange query to point to correct database and table row below. this needs to correspond with form-collected data and session variables 
 		$query = "INSERT INTO article(id, username, titel, text, category_type)
 		VALUES('$userid', '$username', '$_GET[title]', '$_GET[text]', '$_GET[category_type]')";
 
@@ -106,10 +106,10 @@ if($_SERVER["REQUEST_METHOD"] == "GET" && isset($_POST['submit'])) {
 						<datalist id="Category"><!--Category as example-->
 							<script type="JQuery">
 								$(document).ready(function(){
-									$.getJSON("categories.json", function(data) {<!--categories.json as example, here you need to set name for JSON file storing data from database
+									$.getJSON("categories.json", function(data) {<!--categories.json as an example, here you need to input name of the JSON-file which hosts and collects all the data you want to be able to display
 										$(data).each(function(index, element) {
-											categories = "<option value=\"" + this.Category + "\">" + "</option>";<!--Category as example, Categories as example -->
-											$('#Category').append(categories);<!--Category as example, Categories as example -->
+											categories = "<option value=\"" + this.Category + "\">" + "</option>";<!--categories as example, Category as example -->
+											$('#Category').append(categories);<!--Category as example, categories as example -->
 										});
 									});
 								});

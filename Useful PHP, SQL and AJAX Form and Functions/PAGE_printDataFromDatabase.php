@@ -12,11 +12,11 @@
 //
 //--------------------------------------------------------------------------------------------------------------------
 
-//require session file storing variables for current session
-require "session.php";//<------Name of file storing session variables
+//Require session file to access variables for current session
+require "session.php";//<------Name of file to access session variables
 
-//Requiring file containing credentials to the database hosting user login credentials
-require_once 'databaseConnection.php';//<------Name of file with database access credentials
+//Require database-connection file to access login credentials
+require_once "databaseConnection.php";//<------Name of file with database access credentials
 
 //------------------------------------------------------------------------------------
 
@@ -38,7 +38,7 @@ require_once 'databaseConnection.php';//<------Name of file with database access
 	<head>
 		<!--Character Encoding Table-->
 		<meta charset="UTF-8">
-		<!--Link to CSS fil-->
+		<!--Link to CSS file-->
 		<link href="style.css" rel="stylesheet">
 		<!--Link to jQuery scripts-->
 		<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
@@ -62,10 +62,10 @@ require_once 'databaseConnection.php';//<------Name of file with database access
 				<datalist id="users"><!--users as example-->
 					<script type="JQuery">
 						$(document).ready(function(){
-							$.getJSON("userinfo.json", function(data) {<!--userinfo.json as example, here you need to set name for JSON file storing data you wantt collect from the database
+							$.getJSON("userinfo.json", function(data) {<!--userinfo.json as an example, here you need to input name of the JSON-file which hosts and collects all the data you want to be able to display-->
 								$(data).each(function(index, element) {
-									user = "<option value=\"" + this.Username + "\">" + this.ID + "</option>";<!--user as example, Username as example, ID as example-->
-									$('#users').append(user);
+									user = "<option value=\"" + this.Username + "\">" + this.ID + "</option>";<!--user as example, Username as example, ID as example, here you need to exchange variables to to point to corresponding rows defined in JSON file-->
+									$('#users').append(user);<!--$users as example, user as example-->
 								});
 							});
 						});
@@ -82,11 +82,12 @@ require_once 'databaseConnection.php';//<------Name of file with database access
 						echo '<h1>', 'User: ', $_GET["user"], '</h1>';//<--user as example
 						
 						//Connection to database if "databaseConnection.php" is included
-						$connection = new mysqli(DBSERVER, DBUSERNAME, DBPASSWORD, DBNAME);//<-----Here you enter variables stored in "databaseConnection.php"
+						$mysqli_pointer = new mysqli(DBSERVER, DBUSERNAME, DBPASSWORD, DBNAME);//<-----Enter variables defined in "databaseConnection.php" here
 						if (mysqli_connect_errno()){
 							echo'<p class="error">Something went wrong: </p>' . mysqli_connect_error();
-						}//Query to store result
-						if($query = $mysql_pointer->prepare("SELECT * FROM userinfo WHERE users_username = ?")) {//<----Here you exchange query to point to correct database and row for what you want to display
+						}
+						//Query
+						if($query = $mysqli_pointer->prepare("SELECT * FROM userinfo WHERE users_username = ?")) {//<----Exchange query to point to correct database and row for what you want to display here
 							$query->bind_param('s', $namn);//<---Binding variable as string
 							$query->execute();//<----Execute
 							$rad = $query->get_result()->fetch_assoc();//<----Fetching result and associated data
@@ -94,6 +95,10 @@ require_once 'databaseConnection.php';//<------Name of file with database access
 						//Printing result
 						echo 'User ID: '. $rad['users_id']. '<br>'. " ". 'Name: '. $rad['surname']. " ". $rad['lastname']. '<br>'. " ". 'Age: '. $rad['age']. '<br>'. " ". 'Location: '. $rad['city']. '<br>'. " ". 'Presentation: '. $rad['presentation'];
 					}
+					// Closing connection to database
+					$query->close();
+					$insertQuery->close();
+					mysqli_close($mysqli_pointer);
 				?>
 			</p>
 		</div>

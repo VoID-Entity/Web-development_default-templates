@@ -15,8 +15,8 @@
 //Starts session
 session_start();
 
-//Requiring file containing credentials to the database hosting user login credentials.
-require_once "databaseConnection.php";//<------Name of file with database access credentials. 
+//Require database-connection file to access login credentials
+require_once "databaseConnection.php";//<------Name of file with database access credentials
 
 //Defining variables referenced outside of below statements requred to set them in order to avoid "null error".
 $success = "";
@@ -25,22 +25,22 @@ $error = "";
 //When "submit", this happens.
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 	
-	//Defining variables from form
+	//Defining variables through form data
 	$email = mysqli_real_escape_string($mysqli_pointer, $_POST['email']);
 	$password = mysqli_real_escape_string($mysqli_pointer, $_POST['password']);
 	
-	//Error if field is empty (But this field is requred to be set to be able to submit by below html form)
+	//Error if field is empty (however, this field is required to be set by below html form)
 	if(empty($email)) {
 		$error .= '<p class="error">Please enter email address!</p>';
 	}
-	//Error if field is empty (But this field is requred to be set to be able to submit by below html form)
+	//Error if field is empty (however, this field is required to be set by below html form)
 	if(empty($password)) {
 		$error .= '<p class="error">Please enter password!</p>';
 	}
 	
 	//Login (Comparing credentials from form to credentials hosted in database)
 	if(empty($error)) {
-		if($query = $mysqli_pointer->prepare("SELECT * FROM users WHERE email = ?")) {//<----Here you exchange query to point to correct database and row for user login credentials. 
+		if($query = $mysqli_pointer->prepare("SELECT * FROM users WHERE email = ?")) {//<----Exchange query to point to correct database and row for user login credentials here 
 			$query->bind_param('s', $email);//<-----Binding parameter "email" as string
 			$query->execute();//<------Execute 
 			$row = $query->get_result()->fetch_assoc();//<----Fetching result and associated data
@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 					$_SESSION["id"] = $row['id'];
 					$_SESSION["username"] = $row['username'];
 					
-					//Points to welcome.php (Or whatever file you want logning users to be redirected to)
+					//Points to welcome.php (or whatever page you want successfully logged in users to be redirected to)
 					header("location: welcome.php");//<-----Filename for page here
 					exit;
 				}

@@ -12,13 +12,13 @@
 //
 //--------------------------------------------------------------------------------------------------------------------
 
-//require session file storing variables for current session
-require "session.php";//<------Name of file storing session variables
+//Require session file to access variables for current session
+require "session.php";//<------Name of file to access session variables
 
 //Defining variable for comparison against database
 $userinfo = $_SESSION["username"]
 
-//Below example is treated as if there are multiple different databases with seperated login-credentials requred to access them.
+//Below example is treated as if there are multiple different databases with seperated login-credentials required to access them.
 //Such a structure would require multiple different connections which will be illustrated below.
 
 ?>
@@ -47,13 +47,13 @@ $userinfo = $_SESSION["username"]
 					<?php
 						
 						//Include credentials to database if this is not stored in a seperate file
-						$mysqli_pointer = mysqli_connect("localhost","USERNAME","PASSWORD", "DATABASE");//<-----Here you enter your login credential etc to access database
+						$mysqli_pointer = mysqli_connect("localhost","USERNAME","PASSWORD", "DATABASE");//<-----Enter your login credential etc to access database here
 						if (mysqli_connect_errno()){
 							$error .= '<p class="error">Something went wrong: </p>' . mysqli_connect_error();
 						}
 						
 						//Query to database from which to collect information
-						$query = "SELECT * FROM article WHERE Users_Name = '$userinfo'";//<----Here you exchange query to point to correct database and row for what you want to fetch
+						$query = "SELECT * FROM article WHERE Users_Name = '$userinfo'";//<----Exchange query to point to correct database and row for what you want to fetch here
 						$result = $connection->query($query);
 						if (!$result) {
 							die($connection->error);
@@ -63,8 +63,8 @@ $userinfo = $_SESSION["username"]
 							//<----For each number of rows, this happens
 							$rows = $result->num_rows;
 							for ($j = 0 ; $j < $rows ; ++$j) {
-								$result->data_seek($j);//<---Seraching for data
-								$row = $result->fetch_array(MYSQLI_ASSOC);//<---binding array of results to corresponding $row
+								$result->data_seek($j);//<---Search for data
+								$row = $result->fetch_array(MYSQLI_ASSOC);//<---Binding array of results to corresponding $row
 								
 							}
 							//Terminating connection
@@ -92,29 +92,29 @@ $userinfo = $_SESSION["username"]
 						<!--Fecthing current users profile picture in this example-->
 						<?php
 							//Include credentials to database if this is not stored in a seperate file
-							$mysqli_pointer=mysqli_connect("localhost","USERNAME","PASSWORD", "DATABASE");//<-----Here you enter your login credential etc to access database
+							$mysqli_pointer=mysqli_connect("localhost","USERNAME","PASSWORD", "DATABASE");//<-----Enter login credential etc to access database here
 							if (mysqli_connect_errno()) {
 								echo "Something went wrong: " . mysqli_connect_error();
 							}
-							$query = "SELECT `URL` FROM `pictures`";//<----Here you exchange query to point to correct database and row for search desired result
+							$query = "SELECT `URL` FROM `pictures`";//<----Exchange query to point to correct database and row for search result here
 							$result = mysqli_query($mysqli_pointer, $query) or die("Error: ".mysqli_error($mysqli_pointer));
 							while($row = mysqli_fetch_array($result))//Fetching result
 							{  
 							$picURL = $row['URL'];//Binding to variable $picURL
 							}
 						?>
-					<!--Display image from URL defined to variable through database-->
+					<!--Display image from URL variable set through database-->
 					<img src="<?php echo $picURL;?>"alt="Portrait" class="sidbild1"  width="60%">
 					<p>
 						<!--Fecthing current users profile information in this example-->
 						<?php
 							//Include credentials to database if this is not stored in a seperate file
-							$mysqli_pointer=mysqli_connect("localhost","USERNAME","PASSWORD", "DATABASE");//<-----Here you enter your login credential etc to access database
+							$mysqli_pointer=mysqli_connect("localhost","USERNAME","PASSWORD", "DATABASE");//<-----Enter login credential etc to access database here
 							if (mysqli_connect_errno()) {
 								echo "Something went wrong: " . mysqli_connect_error();
 							}
-							//Search query for uesr information in this example
-							$query = "SELECT surname,  lastname, users_username, presentation FROM userinfo WHERE users_username = '$refname'";//<----Here you exchange query to point to correct database and row for search desired result
+							//Search query for user information in this example
+							$query = "SELECT surname,  lastname, users_username, presentation FROM userinfo WHERE users_username = '$refname'";//<----Exchange query to point to correct database and row for search result here
 							$result = mysqli_query($mysqli_pointer, $query) or die("Error: ".mysqli_error($mysqli_pointer));
 							
 							//While there is a result, this happens

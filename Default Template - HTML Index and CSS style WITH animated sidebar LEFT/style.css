@@ -100,6 +100,7 @@ body {
 	
 /*Element*/
 header {
+	
 	/*Border and background to show CSS*/
 	background-color: black;
 	border-color: white;
@@ -142,6 +143,7 @@ header {
 
 /*Element*/
 nav {
+	
 	/*Border and background to show CSS*/
 	background-color: black;
 	border-color: white;
@@ -155,7 +157,7 @@ nav {
 nav h2 {
 	margin-top: .5em;
 	margin-left: 1em;
-	margin-bottom: .3em;
+	margin-bottom: .6em;
 	Padding-top: .2em;
 	Padding-left: 1em;
 	Padding-bottom: 0em;
@@ -166,6 +168,7 @@ nav h2 {
 	float: right;
 	cursor: pointer;
 	padding: .6em .6em;
+	margin-left: .4em;
 	margin-right: .4em;
 	margin-top: .4em;
 	margin-bottom: .4em;
@@ -295,8 +298,12 @@ footer {
 	nav {
 		display: block;
 	}
+	nav h2 {
+		margin-bottom: 0em;
+	}
 	.nav_img {
-		width: 5%;
+		min-width: 5%;
+		max-width: 5%;
 		float: right;
 		cursor: pointer;
 		padding: .6em .6em;

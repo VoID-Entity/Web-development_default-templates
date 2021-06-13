@@ -12,16 +12,16 @@
 //
 //--------------------------------------------------------------------------------------------------------------------
 
-//require session file storing variables for current session
-require "session.php";//<------Name of file storing session variables
+//Require session file to access variables for current session
+require "session.php";//<------Name of file to access session variables
 
-//Requiring file containing credentials to the database hosting user login credentials
-require_once 'databaseConnection.php';//<------Name of file with database access credentials
+//Require database-connection file to access login credentials
+require_once "databaseConnection.php";//<------Name of file with database access credentials
 	
 	//Connection to database if "databaseConnection.php" is included
-	$connection = new mysqli(DBSERVER, DBUSERNAME, DBPASSWORD, DBNAME);//<-----Here you enter variables stored in "databaseConnection.php"
-	if ($connection->connect_error){
-		die($connection->connect_error);
+	$mysqli_pointer = new mysqli(DBSERVER, DBUSERNAME, DBPASSWORD, DBNAME);//<-----Enter variables defined in "databaseConnection.php" here
+	if (mysqli_connect_errno()){
+		$error .= '<p class="error">Something went wrong: </p>' . mysqli_connect_error();
 	}
 	
 //------------------------------------------------------------------------------------
@@ -43,9 +43,9 @@ $row = "";
 //When "submit", this happens.
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 	
-	$search = mysqli_real_escape_string($mysqli_pointer, $_POST['search']);//<----Here you exchange variable to point to correct form variable
+	$search = mysqli_real_escape_string($mysqli_pointer, $_POST['search']);//<----Exchange variable to point to correct form variable here
 	
-	if($query = $mysql_pointer->prepare("SELECT * FROM users WHERE username = ?")) {{//<----Here you exchange query to point to correct database and row for search results
+	if($query = $mysql_pointer->prepare("SELECT * FROM users WHERE username = ?")) {{//<----Exchange query to point to correct database and row for search results here
 		$query->bind_param('s', $search);//<---Bind parameter for search as string
 		$query->execute();//<---Execute
 		$row = $query->get_result()->fetch_assoc();//<----Fetching result and associated data
@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 	<head>
 		<!--Character Encoding Table-->
 		<meta charset="UTF-8">
-		<!--Link to CSS fil-->
+		<!--Link to CSS file-->
 		<link href="style.css" rel="stylesheet">
 		<!--Link to jQuery scripts-->
 		<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
@@ -88,7 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 			<p>
 				<!--Print result when submit-->
 				<?php 
-					if($row) {//<--Below is an example of printed result, these ofc has to be changed to point to rows in your database corresponding to available search querys.
+					if($row) {//<--Below is an example of printed result, these ofc has to be changed to point to rows in your database corresponding with available search querys.
 						echo 'UserID: ' . $row['id'] .'<br>' . ' Username: '. $row['username'] .'<br>' . ' Email:  ' . $row["email"] . '<br><br>';
 					}
 					else {

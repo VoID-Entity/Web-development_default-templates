@@ -12,11 +12,11 @@
 //
 //--------------------------------------------------------------------------------------------------------------------
 
-//Defining login credentials.
-define('DBSERVER', 'localhost');//<-----Server address.
-define('DBUSERNAME', 'USERNAME');//<-----Username in PHPMyAdmin or similar.
-define('DBPASSWORD', 'PASSWORD');//<-----Password for user in PHPMyAdmin or similar.
-define('DBNAME', 'DATABASE');//<-----The database you want to access.
+//Defining variables with login credentials 
+define('DBSERVER', 'localhost');//<-----Server address
+define('DBUSERNAME', 'USERNAME');//<-----Username in PHPMyAdmin or similar
+define('DBPASSWORD', 'PASSWORD');//<-----Password for user in PHPMyAdmin or similar
+define('DBNAME', 'DATABASE');//<-----Name of database to which you require access
 	
 //Binding credentials listed above to variable used for connection to database.
 $mysqli_pointer = mysqli_connect(DBSERVER, DBUSERNAME, DBPASSWORD, DBNAME);

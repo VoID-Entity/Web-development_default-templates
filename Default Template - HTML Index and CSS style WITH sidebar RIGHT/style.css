@@ -101,6 +101,7 @@ body {
 	
 /*Element*/
 header {
+	
 	/*Border and background to show CSS*/
 	background-color: black;
 	border-color: white;
@@ -151,7 +152,7 @@ main {
 /*ID*/
 #main {
 	overflow: scroll;
-	overflow-x: hidden; /* Hide horizontal scrollbar */
+	overflow-x: hidden;
 	padding-top: 1em;
 	padding-bottom: 1em;
 	padding-left: 3em;
@@ -205,6 +206,7 @@ aside {
 	
 /*Element*/
 footer {
+	
 	/*Border and background to show CSS*/
 	background-color: black;
 	border-color: white;
